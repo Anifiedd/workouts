@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>riley workouts</title>
+    <style media="screen">
+      h1 {
+        margin: 0px;
+      }
+      p {
+        margin: 10px 0px;
+        font-size: 18px;
+      }
+      button {
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        margin-left: 20px;
+      }
+      a {
+        font-weight: bold;
+        color: darkred;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>riley's workouts</h1>
+    <p><a id=pushups>0</a>/75 pushups <button onclick=addreppush()>add rep</button></p>
+    <p><a id=situps>0</a>/125 situps <button onclick=addrepsit()>add rep</button></p>
+    <p><a id=pullups>0</a>/25 pullups <button onclick=addreppull()>add rep</button></p>
+    <p><a id=highknees>0</a>/100 mountain climbers or high knees <button onclick=addrephigh()>add rep</button></p>
+    <p><a id=squats10>0</a>/20 squats with 10lb weight <button onclick=addrepsquat10()>add rep</button></p>
+    <p><a id=squats15>0</a>/5 squats with 15lb weight <button onclick=addrepsquat15()>add rep</button></p>
+    <p><a id=outside>x</a> go outside <button onclick=outside()>done</button></p>
+    <p><a id=bike>x</a> bike <button onclick=bike()>done</button></p>
+    <script type="text/javascript">
+      function addreppush() {
+        let done = document.getElementById('pushups').innerHTML;
+        let rep = 10;
+        const add = +done + +rep;
+        document.getElementById('pushups').innerHTML = add;
+        if (add >= 75) {
+          document.getElementById('pushups').style.color = 'green';
+        }
+      }
+      function addrepsit() {
+        let done = document.getElementById('situps').innerHTML;
+        let rep = 15;
+        const add = +done + +rep;
+        document.getElementById('situps').innerHTML = add;
+        if (add >= 125) {
+          document.getElementById('situps').style.color = 'green';
+        }
+      }
+      function addreppull() {
+        let done = document.getElementById('pullups').innerHTML;
+        let rep = 5;
+        const add = +done + +rep;
+        document.getElementById('pullups').innerHTML = add;
+        if (add >= 25) {
+          document.getElementById('pullups').style.color = 'green';
+        }
+      }
+      function addrephigh() {
+        let done = document.getElementById('highknees').innerHTML;
+        let rep = 25;
+        const add = +done + +rep;
+        document.getElementById('highknees').innerHTML = add;
+        if (add >= 100) {
+          document.getElementById('highknees').style.color = 'green';
+        }
+      }
+      function addrepsquat10() {
+        let done = document.getElementById('squats10').innerHTML;
+        let rep = 10;
+        const add = +done + +rep;
+        document.getElementById('squats10').innerHTML = add;
+        if (add >= 20) {
+          document.getElementById('squats10').style.color = 'green';
+        }
+      }
+      function addrepsquat15() {
+        let done = document.getElementById('squats15').innerHTML;
+        let rep = 5;
+        const add = +done + +rep;
+        document.getElementById('squats15').innerHTML = add;
+        if (add >= 5) {
+          document.getElementById('squats15').style.color = 'green';
+        }
+      }
+      function outside() {
+        document.getElementById('outside').innerHTML = '<b style=color:green>done</b>';
+      }
+      function bike() {
+        document.getElementById('bike').innerHTML = '<b style=color:green>done</b>';
+      }
+    </script>
+  </body>
+</html>
