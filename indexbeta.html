@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>riley workouts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Varela&display=swap" rel="stylesheet">
+    <style media="screen">
+    :root {
+      --bg: #161F30;
+      --red: #ff7b63;
+      --green: #83f7b0;
+      --white: #f2f7ff;
+    }
+    body {
+      cursor: default;
+      margin: 0;
+      font-family: Poppins, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+    }
+      h1 {
+        margin: 0px 30px 0px 0px;
+        background var(--bg);
+        padding: 10px 14px;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+      }
+      p {
+        width: 100vw;
+        margin: 30px 0px;
+        font-size: 22px;
+        background var(--bg);
+        padding: 10px 14px;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+        box-sizing: border-box;
+      }
+      button {
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        margin-left: 20px;
+        float: right;
+      }
+      a {
+        font-weight: bold;
+        color: var(--red);
+        text-shadow: 0px 0px 10px var(--red);
+      }
+      span.oswt {
+        position: relative;
+      }
+      span.oswt:before {
+        content: attr(data-hover);
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        background: yellow;
+        color: black;
+        width: max-content;
+        transition: 200ms ease;
+        z-index: 5;
+        left: 0;
+        top: 100%;
+        font-size: 26px;
+        padding: 0 10px;
+        text-align: center;
+      }
+      span.oswt:hover:before {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body onload=load()>
+    <h1><span class=oswt data-hover="Open Source Workout Tracker">OSWT</span> Workout Tracker!</h1>
+    <p><a id=pushups>0</a>/<span id=maxpush>0</span> pushups <button onclick="addrep( 'pushups',10,push )">add rep</button><button onclick="setmax( 'pushups',push )">set new max</button></p>
+    <p><a id=situps>0</a>/<span id=maxpush>0</span> situps <button onclick="addrep( 'situps',15,sit )">add rep</button></p>
+    <p><a id=pullups>0</a>/<span id=maxpush>0</span> pullups <button onclick="addrep( 'pullups',5,pull )">add rep</button></p>
+    <p><a id=highknees>0</a>/<span id=maxpush>0</span> mountain climbers or high knees <button onclick="addrep( 'highknees',10,high )">add rep</button></p>
+    <p><a id=squats10>0</a>/<span id=maxpush>0</span> squats with 10lb weight <button onclick="addrep( 'squats10',10,squat10 )">add rep</button></p>
+    <p><a id=squats15>0</a>/<span id=maxpush>0</span> squats with 15lb weight <button onclick="addrep( 'squats15',5,squat15 )">add rep</button></p>
+    <p><a id=squats20>0</a>/<span id=maxpush>0</span> squats with 20lb weight <button onclick="addrep( 'squats20',5,squat20 )">add rep</button></p>
+    <p><a id=outside>x</a> go outside <button onclick=outside()>done</button></p>
+    <p><a id=bike>x</a> bike <button onclick=bike()>done</button></p>
+    <script type="text/javascript">
+push = 0
+sit = 0
+pull = 0
+high = 0
+squat10 = 0
+squat15 = 0
+squat20 = 0
+    function load() {
+
+    }
+    function addrep( element,repamount,max ) {
+      let done = document.getElementById(element).innerHTML;
+      const add = +done + +repamount;
+      document.getElementById(element).innerHTML = add;
+      if (add >= max) {
+        document.getElementById(element).style.color = 'var(--green)';
+        document.getElementById(element).style.textShadow = '0px 0px 10px var(--green)';
+    }
+  }
+    function setmax( element,selector ) {
+      let newmax = 0
+      let newmax = prompt('Set your new max', ''+selector+'')
+      document.getElementById(element).innerHTML = newmax
+    }
+      function outside() {
+        document.getElementById('outside').innerHTML = '<b style=color:var(--green)>done</b>';
+        document.getElementById('outside').style.textShadow = '0px 0px 10px var(--green)';
+      }
+      function bike() {
+        document.getElementById('bike').innerHTML = '<b style=color:var(--green)>done</b>';
+        document.getElementById('bike').style.textShadow = '0px 0px 10px var(--green)';
+      }
+    </script>
+  </body>
+</html>
